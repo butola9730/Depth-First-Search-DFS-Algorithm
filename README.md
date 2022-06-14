@@ -119,3 +119,22 @@ int main()
     t.MarkUnvisited(); cout << endl;
     return 0;
 }
+
+    dfs by python..
+    
+    def dfs(adjacencyList, vertex, visitedSet = None, path = None): 
+    # create memo once in top-level call
+    if visitedSet is None:
+        visitedSet = set()
+    if path is None:
+        path = []
+        
+    visitedSet.add(vertex)
+    path.append(vertex)
+    if vertex in adjacencyList:
+        for neighbor in adjacencyList[vertex]:
+            if neighbor not in visitedSet:
+                dfs(adjacencyList, neighbor, visitedSet, path)
+    return path
+
+print(dfs(adjacencyList, 'A'))
